@@ -1,2 +1,0 @@
-/home/Nova Notepad/Desktop/Sulfur/build/CMakeFiles/edit_cache.dir
-/home/Nova Notepad/Desktop/Sulfur/build/CMakeFiles/rebuild_cache.dir
