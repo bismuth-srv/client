@@ -34,8 +34,8 @@ include $(DEVKITARM)/3ds_rules
 
 # Your values.
 APP_TITLE           :=	Sulfur
-APP_DESCRIPTION     :=	The official client for Bismuth servers
-APP_AUTHOR          :=	Bismuth (https://github.com/Bismuth-srv/)
+APP_DESCRIPTION     :=	The official Bismuth client (3DS)
+APP_AUTHOR          :=	Bismuth (Bismuth-srv)
 
 
 TARGET              :=	$(subst $e ,_,$(notdir $(APP_TITLE)))
@@ -58,7 +58,7 @@ BANNER_IMAGE        :=	meta/bismuth-banner.png
 RSF_PATH            :=	meta/sulfur.rsf
 
 # If left blank, makerom will use the default Homebrew logo
-LOGO                :=	meta/logo.bin
+LOGO                :=	meta/bismuth.bin
 
 
 # If left blank, makerom will use default values (0xff3ff and CTR-P-CTAP, respectively)
