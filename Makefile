@@ -41,8 +41,8 @@ APP_AUTHOR          :=	Bismuth (Bismuth-srv)
 TARGET              :=	$(subst $e ,_,$(notdir $(APP_TITLE)))
 OUTDIR              :=	build/out
 BUILD               :=	build
-SOURCES             :=	source source/quirc
-INCLUDES            :=	include
+SOURCES             :=	source source/quirc PKSM-Core/source
+INCLUDES            :=	include PKSM-Core/include
 ROMFS               :=	build/romfs
 GRAPHICS            :=	assets
 GFXBUILD            :=	$(ROMFS)/gfx
@@ -224,15 +224,20 @@ endif
 
 #---------------------------------------------------------------------------------
 all:
+	@echo Preparing to cook $(TARGET) $(VERSION)...
 	@mkdir -p $(BUILD) $(GFXBUILD) $(OUTDIR)
+	@echo Chopping up ingredients...
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+	@echo Baking $(TARGET)...
 	@$(BANNERTOOL) makebanner $(BANNER_IMAGE_ARG) "$(BANNER_IMAGE)" $(BANNER_AUDIO_ARG) "$(BANNER_AUDIO)" -o "$(BUILD)/banner.bnr"
 	@$(BANNERTOOL) makesmdh -s "$(APP_TITLE)" -l "$(APP_DESCRIPTION)" -p "$(APP_AUTHOR)" -i "$(APP_ICON)" -f "$(ICON_FLAGS)" -o "$(BUILD)/icon.icn"
-	$(MAKEROM) -f cia -o "$(OUTPUT).cia" -target t -exefslogo $(MAKEROM_ARGS)
+	@echo Plating $(TARGET)...
+	@$(MAKEROM) -f cia -o "$(OUTPUT).cia" -target t -exefslogo $(MAKEROM_ARGS)
+	@echo $(TARGET) is ready to serve!
 
 #---------------------------------------------------------------------------------
 clean:
-	@echo clean ...
+	@echo Throwing out leftovers...
 	@rm -fr $(BUILD) $(GFXBUILD) $(OUTDIR)
 
 #---------------------------------------------------------------------------------
