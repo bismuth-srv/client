@@ -7,7 +7,7 @@ If you're using VSC, set includes to this on Windows:
 `C:/devkitPro/portlibs/3ds/include/**`  
 `C:/devkitPro/devkitARM/arm-none-eabi/include/**`  
 
-or set includes to this on Linux:
+or set includes to this on Linux:  
 `${workspaceFolder}/**`  
 `/opt/devkitPro/libctru/include/**`  
 `/opt/devkitPro/portlibs/3ds/include/**`  
